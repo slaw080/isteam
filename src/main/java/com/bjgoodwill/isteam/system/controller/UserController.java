@@ -67,9 +67,6 @@ public class UserController extends BaseController {
     @RequiresPermissions("user:list")
     @ResponseBody
     public Map<String, Object> userList(QueryRequest request, User user) {
-        if(true){
-            throw new NullPointerException();
-        }
         return super.selectByPageNumSize(request, () -> this.userService.findUserWithDept(user, request));
     }
 

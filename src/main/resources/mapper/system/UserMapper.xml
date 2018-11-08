@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cc.mrbird.system.dao.UserMapper">
+<mapper namespace="com.bjgoodwill.isteam.system.dao.UserMapper">
   <resultMap id="BaseResultMap" type="com.bjgoodwill.isteam.system.domain.User">
     <!--
       WARNING - @mbg.generated
@@ -23,8 +23,8 @@
   
   <select id="findUserWithDept" resultType="user" parameterType="user">
   		select u.user_id userId,u.username,u.email,u.mobile,u.status,u.crate_time crateTime,
-  		u.ssex,d.dept_name deptName from t_user u 
-  		left join t_dept d on(u.dept_id = d.dept_id)
+  		u.ssex,d.dept_name deptName from sys_user u
+  		left join sys_dept d on(u.dept_id = d.dept_id)
   		where 1=1
   		<if test="username != null and username != ''">
         	AND u.username = #{username}
@@ -44,8 +44,8 @@
     
   <select id="findUserWithRole" resultType="userWithRole">
 		select u.user_id userId,u.username,u.dept_id deptId,u.email,u.mobile,
-		u.status,u.ssex,ur.role_id roleId from t_user u
-		left join t_user_role ur on (u.user_id = ur.user_id)
+		u.status,u.ssex,ur.role_id roleId from sys_user u
+		left join sys_user_role ur on (u.user_id = ur.user_id)
 		where u.user_id = #{userId}
   </select>
   
@@ -62,10 +62,10 @@
 		U .dept_id deptId,
 		group_concat(r.role_name) AS roleName
 	FROM
-		t_user U
-	LEFT JOIN t_dept D ON U .DEPT_ID = D .DEPT_ID
-	LEFT JOIN t_user_role ur ON U .user_id = ur.user_id
-	LEFT JOIN t_role r ON r.role_id = ur.role_id
+		sys_user U
+	LEFT JOIN sys_dept D ON U .DEPT_ID = D .DEPT_ID
+	LEFT JOIN sys_user_role ur ON U .user_id = ur.user_id
+	LEFT JOIN sys_role r ON r.role_id = ur.role_id
 	WHERE
 		U .USER_ID = #{userId}
 	GROUP BY

@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @Version 0.0.1
  */
 @Configuration
-@ConfigurationProperties(prefix = "iSteam")
+@ConfigurationProperties(prefix = "isteam")
 public class IsteamProperties {
 	private ShiroProperties shiro = new ShiroProperties();
 

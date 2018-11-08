@@ -27,6 +27,6 @@ public class IsteamApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(IsteamApplication.class, args);
 		logger.info("iSteam started up successfully at {} {}", LocalDate.now(), LocalTime.now());
-		logger.info("登录URL"+"/n" +"http://127.0.0.1:8090/insurance/");
+		logger.info("登录URL:" +"http://127.0.0.1:8080/index");
 	}
 }

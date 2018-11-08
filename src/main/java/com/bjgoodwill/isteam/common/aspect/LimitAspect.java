@@ -44,7 +44,7 @@ public class LimitAspect {
         this.limitRedisTemplate = limitRedisTemplate;
     }
 
-    @Pointcut("@annotation(cc.mrbird.common.annotation.Limit)")
+    @Pointcut("@annotation(com.bjgoodwill.isteam.common.annotation.Limit)")
     public void pointcut() {
         // do nothing
     }
