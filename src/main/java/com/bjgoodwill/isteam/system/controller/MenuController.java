@@ -21,6 +21,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @ClassName MenuController
+ * @Description 菜单控制器
+ * @Author LI JUN
+ * @Date 2018/11/7 11:15
+ * @Version 0.0.1
+ */
 @Controller
 public class MenuController extends BaseController {
 

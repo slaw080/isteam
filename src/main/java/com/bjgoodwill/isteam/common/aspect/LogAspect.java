@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @ClassName SysLog
+ * @ClassName LogAspect
  * @Description 记录用户操作日志
  * @Author LI JUN
  * @Date 2018/11/7 10:47
@@ -31,7 +31,7 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class LogAspect {
 
-	private static Logger log = LoggerFactory.getLogger(LogAspect.class);
+    private static Logger log = LoggerFactory.getLogger(LogAspect.class);
 
     @Autowired
     private IsteamProperties isteamProperties;

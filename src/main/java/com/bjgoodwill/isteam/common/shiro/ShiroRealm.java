@@ -19,9 +19,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * 自定义实现 ShiroRealm，包含认证和授权两大模块
- *
- * @author MrBird
+ * @ClassName ShiroRealm
+ * @Description 自定义实现 ShiroRealm，包含认证和授权两大模块
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
  */
 public class ShiroRealm extends AuthorizingRealm {
 

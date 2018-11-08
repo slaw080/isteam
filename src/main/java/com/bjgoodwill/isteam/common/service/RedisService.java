@@ -6,6 +6,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * @ClassName RedisService
+ * @Description Redis服务接口
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
+ */
 public interface RedisService {
 
     /**

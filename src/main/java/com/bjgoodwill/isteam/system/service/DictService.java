@@ -10,6 +10,13 @@ import org.springframework.cache.annotation.Cacheable;
 
 import java.util.List;
 
+/**
+ * @ClassName DictService
+ * @Description 字典服务
+ * @Author LI JUN
+ * @Date 2018/11/7 11:24
+ * @Version 0.0.1
+ */
 @CacheConfig(cacheNames = "DictService")
 public interface DictService extends IService<Dict> {
 

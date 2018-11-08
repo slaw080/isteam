@@ -13,7 +13,11 @@ import redis.clients.jedis.JedisPoolConfig;
 import java.util.Set;
 
 /**
- *
+ * @ClassName RedisCache
+ * @Description Redis自定义管理器
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
  */
 public class RedisManager {
 
@@ -149,9 +153,6 @@ public class RedisManager {
         }
     }
 
-    /**
-     * size
-     */
     public Long dbSize() {
         Long dbSize = 0L;
         Jedis jedis = jedisPool.getResource();
@@ -165,12 +166,6 @@ public class RedisManager {
         return dbSize;
     }
 
-    /**
-     * keys
-     *
-     * @param regex
-     * @return
-     */
     public Set<byte[]> keys(String pattern) {
         Set<byte[]> keys = null;
         Jedis jedis = jedisPool.getResource();

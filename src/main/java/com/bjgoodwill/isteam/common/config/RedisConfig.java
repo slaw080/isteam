@@ -29,8 +29,15 @@ import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.time.Duration;
 
-@Configuration
+/**
+ * @ClassName RedisConfig
+ * @Description Redis配置
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
+ */
 
+@Configuration
 public class RedisConfig extends CachingConfigurerSupport {
 
     @Value("${spring.redis.host}")

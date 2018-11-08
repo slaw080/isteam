@@ -3,6 +3,13 @@ package com.bjgoodwill.isteam.common.domain;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @ClassName RedisInfo
+ * @Description Redis
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
+ */
 public class RedisInfo {
 
     private static Map<String, String> map = new HashMap<>();

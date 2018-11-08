@@ -1,5 +1,12 @@
 package com.bjgoodwill.isteam.common.domain;
 
+/**
+ * @ClassName ValidateCodeProperties
+ * @Description 验证码
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
+ */
 public class ValidateCodeProperties {
 
     // 验证码图片宽度

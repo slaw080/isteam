@@ -14,10 +14,11 @@ import java.util.*;
 import java.util.function.Function;
 
 /**
- * Redis 工具类，只封装了几个常用的 redis 命令，
- * 可根据实际需要按类似的方式扩展即可。
- *
- * @author MrBird
+ * @ClassName RedisService
+ * @Description Redis 工具类，只封装了几个常用的 redis 命令，可根据实际需要按类似的方式扩展即可。
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
  */
 @Service("redisService")
 @SuppressWarnings("unchecked")
@@ -31,7 +32,6 @@ public class RedisServiceImpl implements RedisService {
 
     /**
      * 处理jedis请求
-     *
      * @param f 处理逻辑，通过lambda行为参数化
      * @return 处理结果
      */

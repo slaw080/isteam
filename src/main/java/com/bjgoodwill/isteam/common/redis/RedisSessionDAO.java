@@ -12,8 +12,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author bootdo 1992lcg@163.com
- * @version V1.0
+ * @ClassName RedisSessionDAO
+ * @Description Redis
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
  */
 public class RedisSessionDAO extends AbstractSessionDAO {
 

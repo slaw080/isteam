@@ -20,32 +20,32 @@ import java.util.List;
 @CacheConfig(cacheNames = "UserService")
 public interface UserService extends IService<User> {
 
-	UserWithRole findById(Long userId);
+    UserWithRole findById(Long userId);
 
-	User findByName(String userName);
+    User findByName(String userName);
 
-	@Cacheable(key = "#p0.toString() + (#p1 != null ? #p1.toString() : '')")
-	List<User> findUserWithDept(User user, QueryRequest request);
+    @Cacheable(key = "#p0.toString() + (#p1 != null ? #p1.toString() : '')")
+    List<User> findUserWithDept(User user, QueryRequest request);
 
-	@CacheEvict(key = "#p0", allEntries = true)
-	void registUser(User user);
+    @CacheEvict(key = "#p0", allEntries = true)
+    void registUser(User user);
 
-	void updateTheme(String theme, String userName);
+    void updateTheme(String theme, String userName);
 
-	@CacheEvict(allEntries = true)
-	void addUser(User user, Long[] roles);
+    @CacheEvict(allEntries = true)
+    void addUser(User user, Long[] roles);
 
-	@CacheEvict(key = "#p0", allEntries = true)
-	void updateUser(User user, Long[] roles);
+    @CacheEvict(key = "#p0", allEntries = true)
+    void updateUser(User user, Long[] roles);
 
-	@CacheEvict(key = "#p0", allEntries = true)
-	void deleteUsers(String userIds);
+    @CacheEvict(key = "#p0", allEntries = true)
+    void deleteUsers(String userIds);
 
-	void updateLoginTime(String userName);
+    void updateLoginTime(String userName);
 
-	void updatePassword(String password);
+    void updatePassword(String password);
 
-	User findUserProfile(User user);
+    User findUserProfile(User user);
 
-	void updateUserProfile(User user);
+    void updateUserProfile(User user);
 }

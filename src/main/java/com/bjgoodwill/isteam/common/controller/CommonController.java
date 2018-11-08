@@ -10,6 +10,13 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * @ClassName CommonController
+ * @Description 通用控制器，处理文件下载，还可以扩展其他功能
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
+ */
 @Controller
 public class CommonController {
 

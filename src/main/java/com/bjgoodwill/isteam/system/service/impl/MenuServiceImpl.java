@@ -24,6 +24,13 @@ import tk.mybatis.mapper.entity.Example.Criteria;
 
 import java.util.*;
 
+/**
+ * @ClassName MenuServiceImpl
+ * @Description 菜单服务实现类
+ * @Author LI JUN
+ * @Date 2018/11/7 11:24
+ * @Version 0.0.1
+ */
 @Service("menuService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class MenuServiceImpl extends BaseService<Menu> implements MenuService {

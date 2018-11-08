@@ -27,6 +27,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * @ClassName LoginController
+ * @Description 登录控制器
+ * @Author LI JUN
+ * @Date 2018/11/7 11:15
+ * @Version 0.0.1
+ */
 @Controller
 public class LoginController extends BaseController {
 

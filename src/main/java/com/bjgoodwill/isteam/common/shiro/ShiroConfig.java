@@ -30,9 +30,11 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 
 /**
- * Shiro 配置类
- *
- * @author MrBird
+ * @ClassName ShiroConfig
+ * @Description Shiro 配置类
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
  */
 @Configuration
 public class ShiroConfig {
@@ -54,7 +56,6 @@ public class ShiroConfig {
 
     /**
      * shiro 中配置 redis 缓存
-     *
      * @return RedisManager
      */
     private RedisManager redisManager() {

@@ -6,6 +6,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * @ClassName TestController
+ * @Description 测试类，可以删除
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
+ */
 @RestController
 public class TestController {
 

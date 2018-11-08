@@ -10,6 +10,13 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @ClassName WebConfig
+ * @Description Web配置
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
+ */
 @Configuration
 @SuppressWarnings("unchecked")
 public class WebConfig {

@@ -15,6 +15,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * @ClassName RedisController
+ * @Description Redis控制器
+ * @Author LI JUN
+ * @Date 2018/11/7 11:15
+ * @Version 0.0.1
+ */
 @Controller
 @RequestMapping("redis")
 public class RedisController {

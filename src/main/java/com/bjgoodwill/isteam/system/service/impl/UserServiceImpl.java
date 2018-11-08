@@ -25,6 +25,13 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @ClassName UserServiceImpl
+ * @Description 用户服务实现类
+ * @Author LI JUN
+ * @Date 2018/11/7 11:24
+ * @Version 0.0.1
+ */
 @Service("userService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class UserServiceImpl extends BaseService<User> implements UserService {

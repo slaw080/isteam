@@ -8,6 +8,13 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
+/**
+ * @ClassName AsyncExecutorPoolConfig
+ * @Description 异步执行线程池
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
+ */
 @Configuration
 public class AsyncExecutorPoolConfig extends AsyncConfigurerSupport {
     @Bean

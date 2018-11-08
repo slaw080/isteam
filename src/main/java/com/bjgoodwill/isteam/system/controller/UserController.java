@@ -22,6 +22,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @ClassName UserController
+ * @Description 用户控制器
+ * @Author LI JUN
+ * @Date 2018/11/7 11:15
+ * @Version 0.0.1
+ */
 @Controller
 public class UserController extends BaseController {
 

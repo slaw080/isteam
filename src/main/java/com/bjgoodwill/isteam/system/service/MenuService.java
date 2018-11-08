@@ -10,6 +10,13 @@ import org.springframework.cache.annotation.Cacheable;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @ClassName MenuService
+ * @Description 菜单服务
+ * @Author LI JUN
+ * @Date 2018/11/7 11:24
+ * @Version 0.0.1
+ */
 @CacheConfig(cacheNames = "MenuService")
 public interface MenuService extends IService<Menu> {
 

@@ -17,7 +17,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * @ClassName SessionController
+ * @Description 会话控制器
+ * @Author LI JUN
+ * @Date 2018/11/7 11:15
+ * @Version 0.0.1
+ */
 @Controller
 public class SessionController {
 

@@ -26,6 +26,13 @@ import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.*;
 
+/**
+ * @ClassName LogServiceImpl
+ * @Description 日志服务实现类
+ * @Author LI JUN
+ * @Date 2018/11/7 11:24
+ * @Version 0.0.1
+ */
 @Service("logService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class LogServiceImpl extends BaseService<SysLog> implements LogService {
@@ -71,7 +78,7 @@ public class LogServiceImpl extends BaseService<SysLog> implements LogService {
 
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
-		Log logAnnotation = method.getAnnotation(Log.class);
+        Log logAnnotation = method.getAnnotation(Log.class);
         if (logAnnotation != null) {
             // 注解上的描述
             log.setOperation(logAnnotation.value());

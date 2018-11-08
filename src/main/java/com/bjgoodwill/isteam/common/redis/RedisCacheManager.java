@@ -1,10 +1,5 @@
 package com.bjgoodwill.isteam.common.redis;
 
-/**
- * @author bootdo 1992lcg@163.com
- * @version V1.0
- */
-
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheException;
 import org.apache.shiro.cache.CacheManager;
@@ -14,6 +9,13 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+/**
+ * @ClassName RedisCache
+ * @Description Redis自定义缓存管理器
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
+ */
 public class RedisCacheManager implements CacheManager {
 
     private static final Logger logger = LoggerFactory
@@ -32,6 +34,7 @@ public class RedisCacheManager implements CacheManager {
     /**
      * Returns the Redis session keys
      * prefix.
+     *
      * @return The prefix
      */
     public String getKeyPrefix() {
@@ -41,6 +44,7 @@ public class RedisCacheManager implements CacheManager {
     /**
      * Sets the Redis sessions key
      * prefix.
+     *
      * @param keyPrefix The prefix
      */
     public void setKeyPrefix(String keyPrefix) {

@@ -27,9 +27,12 @@ import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.Objects;
 
-
 /**
- * 接口限流注解，示例见 cc.mrbird.common.controller.TestController
+ * @ClassName Log
+ * @Description 接口限流
+ * @Author LI JUN
+ * @Date 2018/11/7 10:47
+ * @Version 0.0.1
  */
 @Aspect
 @Component
