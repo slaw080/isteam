@@ -9,6 +9,7 @@ import com.bjgoodwill.isteam.common.util.vcode.Captcha;
 import com.bjgoodwill.isteam.common.util.vcode.GifCaptcha;
 import com.bjgoodwill.isteam.system.domain.User;
 import com.bjgoodwill.isteam.system.service.UserService;
+import jdk.nashorn.internal.ir.BlockLexicalContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.session.Session;
@@ -16,6 +17,7 @@ import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,21 +49,28 @@ public class LoginController extends BaseController {
     @Autowired
     private UserService userService;
 
+    @Value("${isteam.validateCode.enableValidateCode}")
+    private Boolean enableValidateCode;
+
     @GetMapping("/login")
-    public String login() {
+    public String login(Model model) {
+        model.addAttribute("enableValidateCode", enableValidateCode);
         return "login";
     }
 
     @PostMapping("/login")
     @ResponseBody
     public ResponseBo login(String username, String password, String code, Boolean rememberMe) {
-        if (!StringUtils.isNotBlank(code)) {
-            return ResponseBo.warn("验证码不能为空！");
-        }
-        Session session = super.getSession();
-        String sessionCode = (String) session.getAttribute(CODE_KEY);
-        if (!code.equalsIgnoreCase(sessionCode)) {
-            return ResponseBo.warn("验证码错误！");
+        // 启用验证码验证功能
+        if (enableValidateCode) {
+            if (!StringUtils.isNotBlank(code)) {
+                return ResponseBo.warn("验证码不能为空！");
+            }
+            Session session = super.getSession();
+            String sessionCode = (String) session.getAttribute(CODE_KEY);
+            if (!code.equalsIgnoreCase(sessionCode)) {
+                return ResponseBo.warn("验证码错误！");
+            }
         }
         // 密码 MD5 加密
         password = MD5Utils.encrypt(username.toLowerCase(), password);
@@ -89,9 +98,9 @@ public class LoginController extends BaseController {
             response.setContentType("image/gif");
 
             Captcha captcha = new GifCaptcha(
-					isteamProperties.getValidateCode().getWidth(),
-					isteamProperties.getValidateCode().getHeight(),
-					isteamProperties.getValidateCode().getLength());
+                    isteamProperties.getValidateCode().getWidth(),
+                    isteamProperties.getValidateCode().getHeight(),
+                    isteamProperties.getValidateCode().getLength());
             HttpSession session = request.getSession(true);
             captcha.out(response.getOutputStream());
             session.removeAttribute(CODE_KEY);

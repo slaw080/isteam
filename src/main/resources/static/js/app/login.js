@@ -43,7 +43,11 @@ function login() {
     var $loginButton = $("#loginButton");
     var username = $(".one input[name='username']").val().trim();
     var password = $(".one input[name='password']").val().trim();
-    var code = $(".one input[name='code']").val().trim();
+    var enableValidateCode =$(".one input[name='enableValidateCode']").val();
+    var code;
+    if(enableValidateCode == true){
+    code = $(".one input[name='code']").val().trim();
+    }
     var rememberMe = $(".one input[name='rememberme']").is(':checked');
     if (username === "") {
         $MB.n_warning("请输入用户名！");
@@ -53,7 +57,7 @@ function login() {
         $MB.n_warning("请输入密码！");
         return;
     }
-    if (code === "") {
+    if (enableValidateCode == true && code === "") {
         $MB.n_warning("请输入验证码！");
         return;
     }
