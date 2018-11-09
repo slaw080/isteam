@@ -8,6 +8,8 @@ import com.bjgoodwill.isteam.common.util.MD5Utils;
 import com.bjgoodwill.isteam.common.util.vcode.Captcha;
 import com.bjgoodwill.isteam.common.util.vcode.GifCaptcha;
 import com.bjgoodwill.isteam.system.domain.User;
+import com.bjgoodwill.isteam.system.domain.UserOnline;
+import com.bjgoodwill.isteam.system.service.SessionService;
 import com.bjgoodwill.isteam.system.service.UserService;
 import jdk.nashorn.internal.ir.BlockLexicalContext;
 import org.apache.commons.lang3.StringUtils;
@@ -28,6 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @ClassName LoginController
@@ -48,6 +51,8 @@ public class LoginController extends BaseController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    SessionService sessionService;
 
     @Value("${isteam.validateCode.enableValidateCode}")
     private Boolean enableValidateCode;
@@ -75,6 +80,13 @@ public class LoginController extends BaseController {
         // 密码 MD5 加密
         password = MD5Utils.encrypt(username.toLowerCase(), password);
         UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);
+        // 同名用户强制退出，同一个用户只允许在一个客户端登录
+        List<UserOnline> list = sessionService.list();
+        for (UserOnline userOnline : list) {
+            if (userOnline.getUsername().equals("admin")) {
+                sessionService.forceLogout(userOnline.getId());
+            }
+        }
         try {
             Subject subject = getSubject();
             if (subject != null)
