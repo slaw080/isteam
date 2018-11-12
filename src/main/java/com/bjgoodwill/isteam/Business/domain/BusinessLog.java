@@ -28,6 +28,10 @@ public class BusinessLog extends SysLog {
     @ExportConfig(value = "状态", convert = "s:0=成功,1=异常")
     private String status = STATUS_SUCCESS;
 
+    @Column(name = "EXCEPTION_TYPE")
+    @ExportConfig(value = "异常类型")
+    private String exceptionType;
+
     @Column(name = "STACKTRACE")
     @ExportConfig(value = "堆栈信息")
     private String stacktrace;
@@ -35,6 +39,7 @@ public class BusinessLog extends SysLog {
     @Column(name = "DESCRIPTION")
     @ExportConfig(value = "描述")
     private String description;
+
 
     public String getStatus() {
         return status;
@@ -58,5 +63,13 @@ public class BusinessLog extends SysLog {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getExceptionType() {
+        return exceptionType;
+    }
+
+    public void setExceptionType(String exceptionType) {
+        this.exceptionType = exceptionType;
     }
 }

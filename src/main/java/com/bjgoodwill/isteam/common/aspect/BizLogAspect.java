@@ -77,6 +77,7 @@ public class BizLogAspect {
     private Object exceptionHandler(Throwable e, BusinessLog log) {
         // 状态：错误
         log.setStatus(BusinessLog.STATUS_ERROR);
+        log.setExceptionType(e.getClass().toString());
         StackTraceElement[] stackTraceElements = e.getStackTrace();
         List<String> stackTeace = new ArrayList<>();
         for (StackTraceElement stackTraceElement : stackTraceElements) {
@@ -97,7 +98,7 @@ public class BizLogAspect {
         // 工程相关堆栈
         log.setStacktrace(stackTeace.toString());
         // 错误描述
-        log.setDescription(StringUtils.isEmpty(e.getMessage())?e.toString():e.getMessage());
+        log.setDescription(e.getMessage());
         return "";
     }
 
