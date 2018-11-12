@@ -1,6 +1,7 @@
 package com.bjgoodwill.isteam.system.service.impl;
 
 
+import com.bjgoodwill.isteam.common.annotation.BizLog;
 import com.bjgoodwill.isteam.common.domain.QueryRequest;
 import com.bjgoodwill.isteam.common.service.impl.BaseService;
 import com.bjgoodwill.isteam.common.util.MD5Utils;

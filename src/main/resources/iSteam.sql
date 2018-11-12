@@ -1,19 +1,60 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost5.7
-Source Server Version : 50723
-Source Host           : localhost:3306
+Source Server         : 商保通开发数据库
+Source Server Version : 50720
+Source Host           : 192.168.7.69:3306
 Source Database       : iSteam
 
 Target Server Type    : MYSQL
-Target Server Version : 50723
+Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-11-08 15:23:41
+Date: 2018-11-12 17:10:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for biz_log
+-- ----------------------------
+DROP TABLE IF EXISTS `biz_log`;
+CREATE TABLE `biz_log` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '日志ID',
+  `USERNAME` varchar(50) DEFAULT NULL COMMENT '操作用户',
+  `OPERATION` text COMMENT '操作内容',
+  `TIME` decimal(11,0) DEFAULT NULL COMMENT '耗时',
+  `METHOD` text COMMENT '操作方法',
+  `PARAMS` text COMMENT '方法参数',
+  `IP` varchar(64) DEFAULT NULL COMMENT '操作者IP',
+  `STATUS` char(1) NOT NULL,
+  `STACKTRACE` varchar(2000) DEFAULT NULL,
+  `DESCRIPTION` varchar(255) DEFAULT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `LOCATION` varchar(50) DEFAULT NULL COMMENT '操作地点',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1070 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of biz_log
+-- ----------------------------
+INSERT INTO `biz_log` VALUES ('1052', 'admin', '{业务操作}:获取患者基本信息', '3', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '', null, null, '2018-11-12 15:23:09', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1053', 'zhongan', '{业务操作}:获取患者基本信息', '45360', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '0', null, null, '2018-11-12 15:59:49', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1054', 'zhongan', '{业务操作}:获取患者基本信息', '6051', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '0', null, null, '2018-11-12 16:00:35', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1055', 'zhongan', '{业务操作}:获取患者基本信息', '1570', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '0', null, null, '2018-11-12 16:00:52', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1056', 'zhongan', '{业务操作}:获取患者基本信息', '5343', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '0', null, null, '2018-11-12 16:01:23', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1057', 'zhongan', '{业务操作}:获取患者基本信息', '111438', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '1', '[com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl, com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl$$FastClassBySpringCGLIB$$7a10c846, com.bjgoodwill.isteam.common.aspect.BizLogAspect, com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl$$EnhancerBySpringCGLIB$$2cf48c29, com.bjgoodwill.isteam.Business.controller.BizController, com.bjgoodwill.isteam.common.xss.XssFilter]', null, '2018-11-12 16:24:59', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1058', 'zhongan', '{业务操作}:获取患者基本信息', '2', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '1', '[MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo LineNumber20, MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl$$FastClassBySpringCGLIB$$7a10c846.invoke LineNumber-1, MethodName:com.bjgoodwill.isteam.common.aspect.BizLogAspect.around LineNumber58, MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl$$EnhancerBySpringCGLIB$$2cf48c29.getPatientInfo LineNumber-1, MethodName:com.bjgoodwill.isteam.Business.controller.BizController.getPatientInfo LineNumber29, MethodName:com.bjgoodwill.isteam.common.xss.XssFilter.doFilter LineNumber52]', null, '2018-11-12 16:33:55', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1059', 'zhongan', '{业务操作}:获取患者基本信息', '1', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '1', '[MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo LineNumber:20\n, MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl$$FastClassBySpringCGLIB$$7a10c846.invoke LineNumber:-1\n, MethodName:com.bjgoodwill.isteam.common.aspect.BizLogAspect.around LineNumber:58\n, MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl$$EnhancerBySpringCGLIB$$2cf48c29.getPatientInfo LineNumber:-1\n, MethodName:com.bjgoodwill.isteam.Business.controller.BizController.getPatientInfo LineNumber:29\n, MethodName:com.bjgoodwill.isteam.common.xss.XssFilter.doFilter LineNumber:52\n]', null, '2018-11-12 16:35:50', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1060', 'zhongan', '{业务操作}:获取患者基本信息', '0', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '1', '[MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo LineNumber:20\n, MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl$$FastClassBySpringCGLIB$$7a10c846.invoke LineNumber:-1\n, MethodName:com.bjgoodwill.isteam.common.aspect.BizLogAspect.around LineNumber:58\n, MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl$$EnhancerBySpringCGLIB$$2cf48c29.getPatientInfo LineNumber:-1\n, MethodName:com.bjgoodwill.isteam.Business.controller.BizController.getPatientInfo LineNumber:29\n, MethodName:com.bjgoodwill.isteam.common.xss.XssFilter.doFilter LineNumber:52\n]', null, '2018-11-12 16:39:19', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1061', 'zhongan', '{业务操作}:获取患者基本信息', '130375', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '1', '[MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo LineNumber:20\n, MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl$$FastClassBySpringCGLIB$$7a10c846.invoke LineNumber:-1\n, MethodName:com.bjgoodwill.isteam.common.aspect.BizLogAspect.around LineNumber:58\n, MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl$$EnhancerBySpringCGLIB$$2cf48c29.getPatientInfo LineNumber:-1\n, MethodName:com.bjgoodwill.isteam.Business.controller.BizController.getPatientInfo LineNumber:29\n, MethodName:com.bjgoodwill.isteam.common.xss.XssFilter.doFilter LineNumber:52\n]', null, '2018-11-12 16:41:58', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1062', 'zhongan', '{业务操作}:获取患者基本信息', '8942', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '1', '[MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo LineNumber:20\n, MethodName:com.bjgoodwill.isteam.common.aspect.BizLogAspect.around LineNumber:58\n, MethodName:com.bjgoodwill.isteam.Business.controller.BizController.getPatientInfo LineNumber:29\n, MethodName:com.bjgoodwill.isteam.common.xss.XssFilter.doFilter LineNumber:52\n]', null, '2018-11-12 16:42:16', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1063', 'zhongan', '{业务操作}:获取患者基本信息', '5', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '1', '[MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo LineNumber:22\n, MethodName:com.bjgoodwill.isteam.common.aspect.BizLogAspect.around LineNumber:58\n, MethodName:com.bjgoodwill.isteam.Business.controller.BizController.getPatientInfo LineNumber:29\n, MethodName:com.bjgoodwill.isteam.common.xss.XssFilter.doFilter LineNumber:52\n]', null, '2018-11-12 16:52:36', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1064', 'zhongan', '{业务操作}:获取患者基本信息', '26802', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '1', '[MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo LineNumber:22\n, MethodName:com.bjgoodwill.isteam.common.aspect.BizLogAspect.around LineNumber:58\n, MethodName:com.bjgoodwill.isteam.Business.controller.BizController.getPatientInfo LineNumber:29\n, MethodName:com.bjgoodwill.isteam.common.xss.XssFilter.doFilter LineNumber:52\n]', null, '2018-11-12 16:53:47', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1065', 'zhongan', '{业务操作}:获取患者基本信息', '90621', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '1', '[MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo LineNumber:22\n, MethodName:com.bjgoodwill.isteam.common.aspect.BizLogAspect.around LineNumber:58\n, MethodName:com.bjgoodwill.isteam.Business.controller.BizController.getPatientInfo LineNumber:29\n, MethodName:com.bjgoodwill.isteam.common.xss.XssFilter.doFilter LineNumber:52\n]', null, '2018-11-12 16:55:39', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1066', 'zhongan', '{业务操作}:获取患者基本信息', '26556', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '1', '[MethodName:com.bjgoodwill.isteam.common.util.WebServiceUtils.WebServiceUtils LineNumber:13\n, MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo LineNumber:20\n, MethodName:com.bjgoodwill.isteam.common.aspect.BizLogAspect.around LineNumber:58\n, MethodName:com.bjgoodwill.isteam.Business.controller.BizController.getPatientInfo LineNumber:29\n, MethodName:com.bjgoodwill.isteam.common.xss.XssFilter.doFilter LineNumber:52\n]', 'web Service 调用失败', '2018-11-12 16:57:41', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1068', 'zhongan', '{业务操作}:获取患者基本信息', '1485', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '1', '[MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo LineNumber:22\n, MethodName:com.bjgoodwill.isteam.common.aspect.BizLogAspect.around LineNumber:59\n, MethodName:com.bjgoodwill.isteam.Business.controller.BizController.getPatientInfo LineNumber:29\n, MethodName:com.bjgoodwill.isteam.common.xss.XssFilter.doFilter LineNumber:52\n]', 'java.lang.NullPointerException', '2018-11-12 17:04:42', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `biz_log` VALUES ('1069', 'zhongan', '{业务操作}:获取患者基本信息', '2027', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '1', '[MethodName:com.bjgoodwill.isteam.common.util.WebServiceUtils.WebServiceUtils LineNumber:13\n, MethodName:com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo LineNumber:20\n, MethodName:com.bjgoodwill.isteam.common.aspect.BizLogAspect.around LineNumber:59\n, MethodName:com.bjgoodwill.isteam.Business.controller.BizController.getPatientInfo LineNumber:29\n, MethodName:com.bjgoodwill.isteam.common.xss.XssFilter.doFilter LineNumber:52\n]', 'web Service 调用失败', '2018-11-12 17:05:10', '内网IP|0|0|内网IP|内网IP');
 
 -- ----------------------------
 -- Table structure for sys_dept
@@ -81,11 +122,18 @@ CREATE TABLE `sys_log` (
   `CREATE_TIME` datetime DEFAULT NULL COMMENT '创建时间',
   `location` varchar(50) DEFAULT NULL COMMENT '操作地点',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=985 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1053 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_log
 -- ----------------------------
+INSERT INTO `sys_log` VALUES ('1046', 'admin', '', '0', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '2018-11-12 14:47:09', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `sys_log` VALUES ('1047', 'admin', '', '0', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '2018-11-12 14:47:09', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `sys_log` VALUES ('1048', 'admin', '获取在线用户信息', '0', 'com.bjgoodwill.isteam.system.controller.SessionController.online()', '', '127.0.0.1', '2018-11-12 14:47:21', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `sys_log` VALUES ('1049', 'admin', '获取在线用户信息', '0', 'com.bjgoodwill.isteam.system.controller.SessionController.online()', '', '127.0.0.1', '2018-11-12 14:47:22', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `sys_log` VALUES ('1050', 'admin', '{业务操作}:获取患者基本信息', '0', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '2018-11-12 14:49:29', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `sys_log` VALUES ('1051', 'admin', '获取在线用户信息', '0', 'com.bjgoodwill.isteam.system.controller.SessionController.online()', '', '127.0.0.1', '2018-11-12 14:49:34', '内网IP|0|0|内网IP|内网IP');
+INSERT INTO `sys_log` VALUES ('1052', 'admin', '{业务操作}:获取患者基本信息', '3', 'com.bjgoodwill.isteam.Business.service.impl.BizServiceImpl.getPatientInfo()', 'string: \"hello \"', '127.0.0.1', '2018-11-12 15:20:37', '内网IP|0|0|内网IP|内网IP');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -130,7 +178,7 @@ INSERT INTO `sys_menu` VALUES ('21', '6', '修改部门', null, 'dept:update', n
 INSERT INTO `sys_menu` VALUES ('22', '6', '删除部门', null, 'dept:delete', null, '1', null, '2017-12-27 17:09:24', null);
 INSERT INTO `sys_menu` VALUES ('23', '8', '踢出用户', null, 'user:kickout', null, '1', null, '2017-12-27 17:11:13', null);
 INSERT INTO `sys_menu` VALUES ('24', '10', '删除日志', null, 'log:delete', null, '1', null, '2017-12-27 17:11:45', null);
-INSERT INTO `sys_menu` VALUES ('64', '1', '字典管理', 'dict', 'dict:list', '', '0', null, '2018-01-18 10:38:25', '2018-04-25 09:01:50');
+INSERT INTO `sys_menu` VALUES ('64', '1', '系统字典', 'dict', 'dict:list', '', '0', null, '2018-01-18 10:38:25', '2018-11-08 15:33:13');
 INSERT INTO `sys_menu` VALUES ('65', '64', '新增字典', null, 'dict:add', null, '1', null, '2018-01-18 19:10:08', null);
 INSERT INTO `sys_menu` VALUES ('66', '64', '修改字典', null, 'dict:update', null, '1', null, '2018-01-18 19:10:27', null);
 INSERT INTO `sys_menu` VALUES ('67', '64', '删除字典', null, 'dict:delete', null, '1', null, '2018-01-18 19:10:47', null);
@@ -236,12 +284,13 @@ CREATE TABLE `sys_user` (
   `AVATAR` varchar(100) DEFAULT NULL COMMENT '头像',
   `DESCRIPTION` varchar(100) DEFAULT NULL COMMENT '描述',
   PRIMARY KEY (`USER_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'steam', 'ff595db143ab9f14e2e722cd0534836c', '5', '', '', '1', '2018-11-08 10:21:55', '2018-11-08 10:47:06', '2018-11-08 14:21:23', '0', 'lime', 'default.jpg', null);
+INSERT INTO `sys_user` VALUES ('1', 'steam', 'ff595db143ab9f14e2e722cd0534836c', '5', '', '', '1', '2018-11-08 10:21:55', '2018-11-08 10:47:06', '2018-11-12 11:00:44', '0', 'lime', 'default.jpg', null);
+INSERT INTO `sys_user` VALUES ('168', 'admin', 'c7242b2bc2435c1ead6b89f85d9e6a96', '5', '', '', '1', '2018-11-09 14:10:24', null, '2018-11-12 13:40:03', '0', 'green', 'default.jpg', null);
 
 -- ----------------------------
 -- Table structure for sys_user_role
@@ -256,3 +305,4 @@ CREATE TABLE `sys_user_role` (
 -- Records of sys_user_role
 -- ----------------------------
 INSERT INTO `sys_user_role` VALUES ('1', '1');
+INSERT INTO `sys_user_role` VALUES ('168', '1');

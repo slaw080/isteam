@@ -14,19 +14,19 @@ import java.util.*;
 import java.util.function.Function;
 
 /**
- * @ClassName RedisService
- * @Description Redis 工具类，只封装了几个常用的 redis 命令，可根据实际需要按类似的方式扩展即可。
- * @Author LI JUN
- * @Date 2018/11/7 10:47
- * @Version 0.0.1
- */
-@Service("redisService")
-@SuppressWarnings("unchecked")
-public class RedisServiceImpl implements RedisService {
+     * @ClassName RedisService
+     * @Description Redis 工具类，只封装了几个常用的 redis 命令，可根据实际需要按类似的方式扩展即可。
+     * @Author LI JUN
+     * @Date 2018/11/7 10:47
+     * @Version 0.0.1
+     */
+    @Service("redisService")
+    @SuppressWarnings("unchecked")
+    public class RedisServiceImpl implements RedisService {
 
-    private Logger log = LoggerFactory.getLogger(this.getClass());
+        private Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
+        @Autowired
     JedisPool jedisPool;
 
 

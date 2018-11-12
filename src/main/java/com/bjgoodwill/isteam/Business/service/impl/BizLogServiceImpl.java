@@ -1,12 +1,13 @@
-package com.bjgoodwill.isteam.system.service.impl;
+package com.bjgoodwill.isteam.Business.service.impl;
 
 
+import com.bjgoodwill.isteam.Business.domain.BusinessLog;
+import com.bjgoodwill.isteam.Business.service.BizLogService;
 import com.bjgoodwill.isteam.common.annotation.BizLog;
 import com.bjgoodwill.isteam.common.annotation.Log;
 import com.bjgoodwill.isteam.common.service.impl.BaseService;
 import com.bjgoodwill.isteam.common.util.AddressUtils;
 import com.bjgoodwill.isteam.system.domain.SysLog;
-import com.bjgoodwill.isteam.system.service.LogService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
@@ -34,9 +35,9 @@ import java.util.*;
  * @Date 2018/11/7 11:24
  * @Version 0.0.1
  */
-@Service("logService")
+@Service("BizLogService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
-public class LogServiceImpl extends BaseService<SysLog> implements LogService {
+public class BizLogServiceImpl extends BaseService<BusinessLog> implements BizLogService {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -44,7 +45,7 @@ public class LogServiceImpl extends BaseService<SysLog> implements LogService {
     ObjectMapper objectMapper;
 
     @Override
-    public List<SysLog> findAllLogs(SysLog log) {
+    public List<BusinessLog> findAllLogs(BusinessLog log) {
         try {
             Example example = new Example(SysLog.class);
             Criteria criteria = example.createCriteria();
@@ -71,11 +72,11 @@ public class LogServiceImpl extends BaseService<SysLog> implements LogService {
     @Transactional
     public void deleteLogs(String logIds) {
         List<String> list = Arrays.asList(logIds.split(","));
-        this.batchDelete(list, "id", SysLog.class);
+        this.batchDelete(list, "id", BusinessLog.class);
     }
 
     @Override
-    public void saveLog(ProceedingJoinPoint joinPoint, SysLog log) throws JsonProcessingException {
+    public void saveLog(ProceedingJoinPoint joinPoint, BusinessLog log) throws JsonProcessingException {
 
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();

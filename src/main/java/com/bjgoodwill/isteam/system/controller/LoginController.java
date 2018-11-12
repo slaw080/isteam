@@ -11,7 +11,6 @@ import com.bjgoodwill.isteam.system.domain.User;
 import com.bjgoodwill.isteam.system.domain.UserOnline;
 import com.bjgoodwill.isteam.system.service.SessionService;
 import com.bjgoodwill.isteam.system.service.UserService;
-import jdk.nashorn.internal.ir.BlockLexicalContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.session.Session;
