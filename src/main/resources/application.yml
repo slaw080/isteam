@@ -8,9 +8,9 @@ spring:
       # 数据库访问配置, 使用druid数据源
       db-type: com.alibaba.druid.pool.DruidDataSource
       driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://192.168.7.69:3306/iSteam?useUnicode=true&characterEncoding=utf8&useSSL=false
-      username: insurance2018
-      password: 9ol.*IK<
+      url: jdbc:mysql://127.0.0.1:3306/iSteam?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: 0okm(IJN
       # 连接池配置
       initial-size: 5
       min-idle: 5
@@ -66,7 +66,7 @@ spring:
     # Redis数据库索引（默认为0）
     database: 0
     # Redis服务器地址
-    host: 192.168.17.105
+    host: 127.0.0.1
     # Redis服务器连接端口
     port: 6379
     # Redis 密码
