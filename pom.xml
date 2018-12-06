@@ -24,6 +24,7 @@
 		<java.version>1.8</java.version>
 		<poi.version>3.13</poi.version>
 		<docker.registry>HOST yours:5000</docker.registry>
+		<activiti.version>5.22.0</activiti.version>
 		<!-- TODO change here to be your docker registry  IP  -->
 		<relativePath/>
 	</properties>
@@ -204,7 +205,31 @@
 			<artifactId>jasypt-spring-boot-starter</artifactId>
 			<version>2.1.0</version>
 		</dependency>
+
+		<!--activiti-->
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-engine</artifactId>
+			<version>${activiti.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-spring</artifactId>
+			<version>${activiti.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-modeler</artifactId>
+			<version>${activiti.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-diagram-rest</artifactId>
+			<version>${activiti.version}</version>
+		</dependency>
 	</dependencies>
+
 
 	<build>
 		<plugins>
